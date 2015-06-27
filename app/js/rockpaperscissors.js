@@ -94,3 +94,22 @@ function playTo(x) {
     return [playerWins, computerWins];
 }
 
+function playToFive() {
+    console.log("Let's play Rock, Paper, Scissors");
+    var playerWins = 0;
+    var computerWins = 0;
+    while (playerWins <= (4) && computerWins <= (4)) {
+        playerMove = getPlayerMove();
+        computerMove = getComputerMove();
+        theWinner = getWinner(playerMove, computerMove);
+        if (theWinner == 'player') {
+            playerWins ++;
+        } else {
+            computerWins ++;
+        }
+        console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
+        console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
+        // console.log([playerWins, computerWins]);
+    }
+    return [playerWins, computerWins];
+}
