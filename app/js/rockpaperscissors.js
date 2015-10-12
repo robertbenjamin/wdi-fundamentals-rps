@@ -47,30 +47,20 @@ function getWinner(playerMove,computerMove) {
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
     var winner;
     if (playerMove === 'rock') {
-    	if (computerMove === 'rock') {
-    		winner = 'tie';
-    	} else if (computerMove === 'paper') {
-    		winner = 'computer'
-    	} else {
-    		winner = 'player'
-    	}
-    } else if (playerMove === 'paper') {
-    	if (computerMove === 'paper') {
-    		winner = 'tie'
-    	} else if (computerMove === 'rock') {
-    		winner = 'player'
-    	} else {
-    		winner = 'computer'
-    	}
-	} else {
-		if (computerMove === 'scissors') {
-			winner = 'tie';
-		} else if (computerMove === 'paper') {
-			winner = 'player';
-		} else {
-			winner = 'computer';
-		}
-	}
+    	if (computerMove === 'rock') { winner = 'tie'; } 
+      else if (computerMove === 'paper') { winner = 'computer' } 
+      else { winner = 'player' }
+    } 
+    else if (playerMove === 'paper') {
+    	if (computerMove === 'paper') { winner = 'tie' } 
+      else if (computerMove === 'rock') { winner = 'player' } 
+      else { winner = 'computer' } 
+    } 
+    else { 
+      if (computerMove === 'scissors') { winner = 'tie'; } 
+      else if (computerMove === 'paper') { winner = 'player'; } 
+      else { winner = 'computer'; }
+    }
 	return winner;
 }
 
@@ -82,14 +72,9 @@ function playTo(x) {
     	playerMove = getPlayerMove();
     	computerMove = getComputerMove();
     	theWinner = getWinner(playerMove, computerMove);
-        if (theWinner == 'player') {
-            playerWins ++;
-        } else {
-            computerWins ++;
-        }
+      (theWinner == 'player') ? playerWins++ : computerWins++;
     	console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
-		console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
-		// console.log([playerWins, computerWins]);
+		  console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
 	}
     return [playerWins, computerWins];
 }
@@ -102,14 +87,9 @@ function playToFive() {
         playerMove = getPlayerMove();
         computerMove = getComputerMove();
         theWinner = getWinner(playerMove, computerMove);
-        if (theWinner == 'player') {
-            playerWins ++;
-        } else {
-            computerWins ++;
-        }
+        (theWinner == 'player') ? playerWins++ : computerWins++;
         console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
         console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
-        // console.log([playerWins, computerWins]);
     }
     return [playerWins, computerWins];
 }
